@@ -1272,7 +1272,7 @@ MonoBehaviour:
   stamina: 150
   left: 20
   right: 20
-  remain: 10
+  remain: 5
   lifeT: {fileID: 1902569321}
   staminaT: {fileID: 927402039}
   leftT: {fileID: 998252873}
@@ -3458,7 +3458,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 5
 --- !u!222 &1219257170
 CanvasRenderer:
   m_ObjectHideFlags: 0

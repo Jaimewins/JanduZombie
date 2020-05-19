@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class LevelManager : MonoBehaviour
        stamina = 150;
        left = 20;
        right = 20;
-       remain = 10;
+       remain = 5;
        contador = 0;
     }
 
@@ -46,5 +47,15 @@ public class LevelManager : MonoBehaviour
         rightT.GetComponent<Text>().text = right.ToString();
         staminaT.GetComponent<Text>().text = stamina.ToString();
         remainT.GetComponent<Text>().text = remain.ToString();
+
+        if (remain <= 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
+
+        if (life <= 0)
+        {
+            SceneManager.LoadScene("Lose");
+        }
     }
 }
