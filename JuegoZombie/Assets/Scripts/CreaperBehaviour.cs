@@ -11,6 +11,7 @@ public class CreaperBehaviour : MonoBehaviour
     private NavMeshAgent agent;
     private Animator anim;
     [SerializeField] SoundPlayer sound;
+    public GameObject player;
 
     [Header("Creeper properties")]
     public int life = 5;
@@ -170,11 +171,13 @@ public class CreaperBehaviour : MonoBehaviour
         sound.Play(0, 1);
         agent.isStopped = true;
         anim.SetTrigger("muerto");
-
+        player.GetComponent<LevelManager>().remain = player.GetComponent<LevelManager>().remain - 1;
+        player.GetComponent<LevelManager>().life = player.GetComponent<LevelManager>().life - 33;
         state = State.Explode;
     }
     void SetDead()
     {
+        player.GetComponent<LevelManager>().remain = player.GetComponent<LevelManager>().remain - 1;
         sound.Play(0, 1);
         Destroy(this.gameObject);
         state = State.Dead;
@@ -216,7 +219,6 @@ public class CreaperBehaviour : MonoBehaviour
         sound.Play(0, 1);
         explosionPS.Play();
         explosionPS.transform.parent = null;
-
         SetDead();
     }
     private void OnDrawGizmos()
@@ -241,7 +243,7 @@ public class CreaperBehaviour : MonoBehaviour
 
         if (other.gameObject.tag == "Shot")
         {
-            Damage(5);
+            Damage(2);
         }
     }
 }

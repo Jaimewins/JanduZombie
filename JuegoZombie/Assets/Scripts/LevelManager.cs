@@ -41,8 +41,10 @@ public class LevelManager : MonoBehaviour
                 contador = 0;
             }
         }
+        lifeT.GetComponent<Text>().text = life.ToString();
         leftT.GetComponent<Text>().text = left.ToString();
         rightT.GetComponent<Text>().text = right.ToString();
         staminaT.GetComponent<Text>().text = stamina.ToString();
+        remainT.GetComponent<Text>().text = remain.ToString();
     }
 }
